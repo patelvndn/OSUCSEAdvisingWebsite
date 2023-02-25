@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 
-class section extends Component {
+class Section extends Component {
   render() {
     return (
-      <React.Fragment>
-        <button>CSE2221</button>
-      </React.Fragment>
+      <div>
+        <h2>{this.props.region}</h2>
+      </div>
     );
   }
 }
 
-export default section;
+export default Section;
