@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import "./App.css";
 import Section from "./components/section";
+import CseCore from "./components/cseCore";
 
 class App extends Component {
   state = {
     counters: [
       { id: 1, region: "College Of Engineering" },
-      { id: 2, region: "CSE Core classes" },
-      { id: 3, region: "POST CSE Core classes" },
-      { id: 4, region: "Specialization classes" },
+      { id: 2, region: "Miscellanuos Required Classes" },
+      { id: 3, region: "CSE Core classes" },
+      { id: 4, region: "POST CSE Core classes" },
+      { id: 5, region: "Specialization classes" },
     ],
 
     SW1val: false,
@@ -18,6 +20,16 @@ class App extends Component {
     SYS1val: false,
     SYS2val: false,
     CAPval: false,
+
+    ENGR1181val: false,
+    ENGR1182val: false,
+    PHYval: false,
+    Calc1val: false,
+    Calc2val: false,
+    LINALGval: false,
+    STATval: false,
+    MATHval: false,
+    ECE2060: false,
   };
 
   render() {
@@ -30,16 +42,6 @@ class App extends Component {
           Click which classes you have taken or taking currently and the website
           will tell you what classes you can take next
         </b>
-        {/* <div className="Region-Formation">
-          {this.state.counters.map((counter) => (
-            <div>
-              <Section key={counter.id} region={counter.region} />
-              <button className="btn btn-danger btn-sm m-2">
-                Fill {counter.region}
-              </button>
-            </div>
-          ))}
-        </div> */}
         <Section
           key={this.state.counters[0].id}
           region={this.state.counters[0].region}
@@ -50,68 +52,41 @@ class App extends Component {
           region={this.state.counters[1].region}
           className="Region-Formation"
         />
-        <button
-          className={this.getButtonColor(this.state.SW1val)}
-          onClick={this.SW1Clicked}
-        >
-          CSE2221
-        </button>
-        <br></br>
-        <button
-          className={this.getButtonColor(this.state.SW2val)}
-          onClick={this.SW2Clicked}
-          hidden={this.getKey1()}
-        >
-          CSE2231
-        </button>
-        <button
-          className={this.getButtonColor(this.state.FN1val)}
-          onClick={this.FN1Clicked}
-          hidden={this.getKey1()}
-        >
-          CSE2321
-        </button>
-        <br></br>
-        <button
-          className={this.getButtonColor(this.state.FN2val)}
-          onClick={this.FN2Clicked}
-          hidden={this.getKey2()}
-        >
-          CSE2331
-        </button>
-        <button
-          className={this.getButtonColor(this.state.SYS1val)}
-          onClick={this.SYS1Clicked}
-          hidden={this.getKey2()}
-        >
-          CSE2421
-        </button>
-
-        <br></br>
-
-        <button
-          className={this.getButtonColor(this.state.SYS2val)}
-          onClick={this.SYS2Clicked}
-          hidden={this.getKey3()}
-        >
-          CSE2431
-        </button>
-
-        <button
-          className={this.getButtonColor(this.state.CAPval)}
-          onClick={this.CAPClicked}
-          hidden={this.getKey3()}
-        >
-          CSE390X
-        </button>
         <Section
           key={this.state.counters[2].id}
           region={this.state.counters[2].region}
           className="Region-Formation"
         />
+        <CseCore
+          key={1}
+          onGetButtonColor={this.getButtonColor}
+          onSW1Clicked={this.SW1Clicked}
+          onSW2Clicked={this.SW2Clicked}
+          onFN1Clicked={this.FN1Clicked}
+          onFN2Clicked={this.FN2Clicked}
+          onSYS1Clicked={this.SYS1Clicked}
+          onSYS2Clicked={this.SYS2Clicked}
+          onCAPClicked={this.CAPClicked}
+          onKey1={this.getKey1()}
+          onKey2={this.getKey2()}
+          onKey3={this.getKey3()}
+          SW1val={this.state.SW1val}
+          SW2val={this.state.SW2val}
+          FN1val={this.state.FN1val}
+          FN2val={this.state.FN2val}
+          SYS1val={this.state.SYS1val}
+          SYS2val={this.state.SYS2val}
+          CAPval={this.state.CAPval}
+        />
         <Section
           key={this.state.counters[3].id}
           region={this.state.counters[3].region}
+          className="Region-Formation"
+        />
+
+        <Section
+          key={this.state.counters[4].id}
+          region={this.state.counters[4].region}
           className="Region-Formation"
         />
       </div>
@@ -195,7 +170,7 @@ class App extends Component {
   };
 
   getButtonColor = (val) => {
-    let x = "btn btn-m m-2 btn-";
+    let x = "btn btn-lg m-2 btn-";
     return (x += val ? "success" : "danger");
   };
 
