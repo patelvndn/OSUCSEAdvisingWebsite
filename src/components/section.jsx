@@ -4,7 +4,7 @@ class Section extends Component {
   render() {
     return (
       <div>
-        <h2>{this.props.region}</h2>
+        <h2 className={this.props.className}>{this.props.region}</h2>
       </div>
     );
   }

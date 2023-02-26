@@ -2,7 +2,11 @@ import React, { Component } from "react";
 
 class TheClass extends Component {
   render() {
-    return <div></div>;
+    return (
+      <div>
+        <button>{this.props.class}</button>
+      </div>
+    );
   }
 }
 
