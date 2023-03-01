@@ -2,16 +2,29 @@ import React, { Component } from "react";
 import "./App.css";
 import Section from "./components/section";
 import CseCore from "./components/cseCore";
+import COEHeader from "./components/coeHeader";
+import COE from "./components/coe";
 
 class App extends Component {
   state = {
     counters: [
       { id: 1, region: "College Of Engineering" },
-      { id: 2, region: "Miscellanuos Required Classes" },
-      { id: 3, region: "CSE Core classes" },
-      { id: 4, region: "POST CSE Core classes" },
-      { id: 5, region: "Specialization classes" },
+      { id: 2, region: "Miscellaneous" },
+      { id: 3, region: "CSE Core" },
+      { id: 4, region: "POST CSE Core" },
+      { id: 5, region: "Specialization" },
     ],
+
+    ENGR1181val: false,
+    ENGR1182val: false,
+    PHYval: false,
+    Calc1val: false,
+    Calc2val: false,
+
+    LINALGval: false,
+    STATval: false,
+    MATHval: false,
+    ECE2060: false,
 
     SW1val: false,
     SW2val: false,
@@ -20,16 +33,6 @@ class App extends Component {
     SYS1val: false,
     SYS2val: false,
     CAPval: false,
-
-    ENGR1181val: false,
-    ENGR1182val: false,
-    PHYval: false,
-    Calc1val: false,
-    Calc2val: false,
-    LINALGval: false,
-    STATval: false,
-    MATHval: false,
-    ECE2060: false,
   };
 
   render() {
@@ -42,16 +45,23 @@ class App extends Component {
           Click which classes you have taken or taking currently and the website
           will tell you what classes you can take next
         </b>
-        <Section
+        <COEHeader
           key={this.state.counters[0].id}
           region={this.state.counters[0].region}
           className="Region-Formation"
+          isEligible={true}
         />
+        <COE
+          onGetButtonColor={this.getButtonColor}
+          Calc1val={this.state.Calc1val}
+        />
+
         <Section
           key={this.state.counters[1].id}
           region={this.state.counters[1].region}
           className="Region-Formation"
         />
+
         <Section
           key={this.state.counters[2].id}
           region={this.state.counters[2].region}
@@ -78,6 +88,7 @@ class App extends Component {
           SYS2val={this.state.SYS2val}
           CAPval={this.state.CAPval}
         />
+
         <Section
           key={this.state.counters[3].id}
           region={this.state.counters[3].region}
@@ -174,15 +185,15 @@ class App extends Component {
     return (x += val ? "success" : "danger");
   };
 
-  getKey1() {
+  getKey1 = () => {
     return !this.state.SW1val;
-  }
+  };
 
-  getKey2() {
+  getKey2 = () => {
     return !this.state.FN1val || !this.state.SW2val || !this.state.SW1val;
-  }
+  };
 
-  getKey3() {
+  getKey3 = () => {
     return (
       !this.state.SYS1val ||
       !this.state.FN2val ||
@@ -190,7 +201,7 @@ class App extends Component {
       !this.state.SW2val ||
       !this.state.SW1val
     );
-  }
+  };
 }
 
 export default App;
