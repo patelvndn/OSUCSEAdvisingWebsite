@@ -22,6 +22,7 @@ class COEHeader extends Component {
 
   checkEligibilty() {
     let x = "badge badge-pill m-2 badge-";
+
     return (x += this.props.isEligible ? "success" : "danger");
   }
 }
