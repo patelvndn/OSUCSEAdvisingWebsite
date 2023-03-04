@@ -50,7 +50,7 @@ class COE extends Component {
         <button
           hidden={!this.props.isEligible}
           onClick={this.props.onAcceptedClicked}
-          className={this.props.onGetButtonColor(this.props.CSEaccval)}
+          className={this.props.onGetButtonColor(this.props.isInCSE)}
         >
           Accepted to CSE
         </button>

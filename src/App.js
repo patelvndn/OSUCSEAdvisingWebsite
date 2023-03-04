@@ -4,6 +4,7 @@ import Section from "./components/section";
 import CseCore from "./components/cseCore";
 import COEHeader from "./components/coeHeader";
 import COE from "./components/coe";
+import Misc from "./components/misc";
 
 class App extends Component {
   state = {
@@ -28,6 +29,7 @@ class App extends Component {
     STATval: false,
     MATHval: false,
     ECE2060: false,
+    ECE2020: false,
 
     SW1val: false,
     SW2val: false,
@@ -42,11 +44,11 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          Welcome to the CSE advising Website
+          Welcome to the CSE Schedule Planner Website!
         </header>
         <b className="App-body">
-          Click which classes you have taken or taking currently and the website
-          will tell you what classes you can take next
+          Click which classes you have taken, or taking currently, and the
+          website will tell you what classes you can take next.
         </b>
         <COEHeader
           key={this.state.counters[0].id}
@@ -62,6 +64,14 @@ class App extends Component {
             this.state.SW1val
           }
         />
+        <b className="App-text">
+          For Calc 1 and Calc 2, they aren't a specific class but the credit for
+          Calc 1 and Calc 2. For example, Math 1172 is a Calc 2 Credt.
+        </b>
+        <b className="App-text">
+          This is because many students have taken these classes in high school
+          and don't have to take them.
+        </b>
         <COE
           key={10}
           onGetButtonColor={this.getButtonColor}
@@ -79,6 +89,7 @@ class App extends Component {
           ENGR1182val={this.state.ENGR1182val}
           SVYval={this.state.SVYval}
           CSEaccval={this.state.CSEaccval}
+          isInCSE={this.state.isInCSE}
           isEligible={
             this.state.Calc1val &&
             this.state.Calc2val &&
@@ -95,7 +106,7 @@ class App extends Component {
           region={this.state.counters[1].region}
           className="Region-Formation"
         />
-
+        <Misc onGetButtonColor={this.getButtonColor} />
         <Section
           key={this.state.counters[2].id}
           region={this.state.counters[2].region}
@@ -150,6 +161,7 @@ class App extends Component {
         SYS2val: false,
         CAPval: false,
         CSEaccval: false,
+        isInCSE: false,
       });
     }
   };
@@ -225,7 +237,12 @@ class App extends Component {
   };
 
   getKey2 = () => {
-    return !this.state.FN1val || !this.state.SW2val || !this.state.SW1val;
+    return (
+      !this.state.FN1val ||
+      !this.state.SW2val ||
+      !this.state.SW1val ||
+      !this.state.isInCSE
+    );
   };
 
   getKey3 = () => {
@@ -234,7 +251,8 @@ class App extends Component {
       !this.state.FN2val ||
       !this.state.FN1val ||
       !this.state.SW2val ||
-      !this.state.SW1val
+      !this.state.SW1val ||
+      !this.state.isInCSE
     );
   };
 
@@ -245,6 +263,7 @@ class App extends Component {
       this.setState({
         Calc2val: false,
         CSEaccval: false,
+        isInCSE: false,
       });
     }
   };
@@ -252,6 +271,9 @@ class App extends Component {
   Calc2Clicked = () => {
     let x = this.state.Calc2val;
     this.setState({ Calc2val: !x });
+    if (!x) {
+      this.setState({ isInCSE: false });
+    }
   };
 
   FE1Clicked = () => {
@@ -261,6 +283,7 @@ class App extends Component {
       this.setState({
         ENGR1182val: false,
         CSEaccval: false,
+        isInCSE: false,
       });
     }
   };
@@ -271,6 +294,7 @@ class App extends Component {
     if (!x) {
       this.setState({
         CSEaccval: false,
+        isInCSE: false,
       });
     }
   };
@@ -281,6 +305,7 @@ class App extends Component {
     if (!x) {
       this.setState({
         CSEaccval: false,
+        isInCSE: false,
       });
     }
   };
@@ -291,13 +316,14 @@ class App extends Component {
     if (!x) {
       this.setState({
         CSEaccval: false,
+        isInCSE: false,
       });
     }
   };
 
   AcceptedClicked = () => {
-    let x = this.state.CSEaccval;
-    this.setState({ CSEaccval: !x });
+    let x = this.state.isInCSE;
+    this.setState({ isInCSE: !x });
   };
 }
 
