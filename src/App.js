@@ -21,16 +21,19 @@ class App extends Component {
     PHYSval: false,
     Calc1val: false,
     Calc2val: false,
+    Math1172val: false,
     SVYval: false,
     CSEacc: false,
     isInCSE: false,
 
+    Calc3val: false,
     LINALGval: false,
     STATval: false,
-    MATHval: false,
+    MATH3345val: false,
     ECE2060: false,
     ECE2020: false,
 
+    introJava: false,
     SW1val: false,
     SW2val: false,
     FN1val: false,
@@ -56,27 +59,21 @@ class App extends Component {
           className="Region-Formation"
           isEligible={
             this.state.Calc1val &&
-            this.state.Calc2val &&
+            (this.state.Calc2val || this.state.Math1172val) &&
             this.state.ENGR1181val &&
             this.state.ENGR1182val &&
             this.state.PHYSval &&
             this.state.SVYval &&
-            this.state.SW1val
+            this.state.SW1val &&
+            this.state.introJava
           }
         />
-        <b className="App-text">
-          For Calc 1 and Calc 2, they aren't a specific class but the credit for
-          Calc 1 and Calc 2. For example, Math 1172 is a Calc 2 Credt.
-        </b>
-        <b className="App-text">
-          This is because many students have taken these classes in high school
-          and don't have to take them.
-        </b>
         <COE
           key={10}
           onGetButtonColor={this.getButtonColor}
           onCalc1Clicked={this.Calc1Clicked}
           onCalc2Clicked={this.Calc2Clicked}
+          onMath1172Clicked={this.Math1172Clicked}
           onFE1Clicked={this.FE1Clicked}
           onFE2Clicked={this.FE2Clicked}
           onPHYSClicked={this.PHYSClicked}
@@ -84,6 +81,7 @@ class App extends Component {
           onAcceptedClicked={this.AcceptedClicked}
           Calc1val={this.state.Calc1val}
           Calc2val={this.state.Calc2val}
+          Math1172val={this.state.Math1172val}
           PHYSval={this.state.PHYSval}
           ENGR1181val={this.state.ENGR1181val}
           ENGR1182val={this.state.ENGR1182val}
@@ -92,12 +90,13 @@ class App extends Component {
           isInCSE={this.state.isInCSE}
           isEligible={
             this.state.Calc1val &&
-            this.state.Calc2val &&
+            (this.state.Calc2val || this.state.Math1172val) &&
             this.state.ENGR1181val &&
             this.state.ENGR1182val &&
             this.state.PHYSval &&
             this.state.SVYval &&
-            this.state.SW1val
+            this.state.SW1val &&
+            this.state.introJava
           }
         />
 
@@ -106,7 +105,20 @@ class App extends Component {
           region={this.state.counters[1].region}
           className="Region-Formation"
         />
-        <Misc onGetButtonColor={this.getButtonColor} />
+        <Misc
+          onGetButtonColor={this.getButtonColor}
+          onCalc3Clicked={this.Calc3Clicked}
+          onSTAT3470Clicked={this.STAT3470Clicked}
+          onMATH2568Clicked={this.MATH2568Clicked}
+          onMATH3345Clicked={this.MATH3345Clicked}
+          Calc1val={this.state.Calc1val}
+          Calc2val={this.state.Calc2val}
+          Calc3val={this.state.Calc3val}
+          Math1172val={this.state.Math1172val}
+          STATval={this.state.STATval}
+          LINALGval={this.state.LINALGval}
+          MATH3345val={this.state.MATH3345val}
+        />
         <Section
           key={this.state.counters[2].id}
           region={this.state.counters[2].region}
@@ -122,9 +134,11 @@ class App extends Component {
           onSYS1Clicked={this.SYS1Clicked}
           onSYS2Clicked={this.SYS2Clicked}
           onCAPClicked={this.CAPClicked}
+          onIntroJavaClicked={this.introJavaClicked}
           onKey1={this.getKey1()}
           onKey2={this.getKey2()}
           onKey3={this.getKey3()}
+          introJava={this.state.introJava}
           SW1val={this.state.SW1val}
           SW2val={this.state.SW2val}
           FN1val={this.state.FN1val}
@@ -148,6 +162,24 @@ class App extends Component {
       </div>
     );
   }
+
+  introJavaClicked = () => {
+    let x = this.state.introJava;
+    this.setState({ introJava: !x });
+    if (!x) {
+      this.setState({
+        SW1val: false,
+        SW2val: false,
+        FN1val: false,
+        FN2val: false,
+        SYS1val: false,
+        SYS2val: false,
+        CAPval: false,
+        CSEaccval: false,
+        isInCSE: false,
+      });
+    }
+  };
 
   SW1Clicked = () => {
     let x = this.state.SW1val;
@@ -233,7 +265,7 @@ class App extends Component {
   };
 
   getKey1 = () => {
-    return !this.state.SW1val;
+    return !this.state.SW1val || !this.state.introJava;
   };
 
   getKey2 = () => {
@@ -241,7 +273,8 @@ class App extends Component {
       !this.state.FN1val ||
       !this.state.SW2val ||
       !this.state.SW1val ||
-      !this.state.isInCSE
+      !this.state.isInCSE ||
+      !this.state.introJava
     );
   };
 
@@ -252,7 +285,8 @@ class App extends Component {
       !this.state.FN1val ||
       !this.state.SW2val ||
       !this.state.SW1val ||
-      !this.state.isInCSE
+      !this.state.isInCSE ||
+      !this.state.introJava
     );
   };
 
@@ -261,7 +295,12 @@ class App extends Component {
     this.setState({ Calc1val: !x });
     if (!x) {
       this.setState({
+        PHYSval: false,
         Calc2val: false,
+        Math1172val: false,
+        LINALGval: false,
+        STATval: false,
+        MATH3345val: false,
         CSEaccval: false,
         isInCSE: false,
       });
@@ -271,6 +310,19 @@ class App extends Component {
   Calc2Clicked = () => {
     let x = this.state.Calc2val;
     this.setState({ Calc2val: !x });
+    if (!x) {
+      this.setState({
+        isInCSE: false,
+        Calc3val: false,
+        LINALGval: false,
+        STATval: false,
+      });
+    }
+  };
+
+  Math1172Clicked = () => {
+    let x = this.state.Math1172val;
+    this.setState({ Math1172val: !x });
     if (!x) {
       this.setState({ isInCSE: false });
     }
@@ -324,6 +376,29 @@ class App extends Component {
   AcceptedClicked = () => {
     let x = this.state.isInCSE;
     this.setState({ isInCSE: !x });
+  };
+
+  Calc3Clicked = () => {
+    let x = this.state.Calc3val;
+    this.setState({ Calc3val: !x });
+    if (!x) {
+      this.setState({ LINALGval: false });
+    }
+  };
+
+  STAT3470Clicked = () => {
+    let x = this.state.STATval;
+    this.setState({ STATval: !x });
+  };
+
+  MATH2568Clicked = () => {
+    let x = this.state.LINALGval;
+    this.setState({ LINALGval: !x });
+  };
+
+  MATH3345Clicked = () => {
+    let x = this.state.MATH3345val;
+    this.setState({ MATH3345val: !x });
   };
 }
 

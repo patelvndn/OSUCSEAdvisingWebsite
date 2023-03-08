@@ -16,14 +16,6 @@ class COE extends Component {
         >
           ENGR1181
         </button>
-
-        <button
-          onClick={this.props.onPHYSClicked}
-          className={this.props.onGetButtonColor(this.props.PHYSval)}
-        >
-          PHYS1250
-        </button>
-
         <button
           onClick={this.props.onSurveyClicked}
           className={this.props.onGetButtonColor(this.props.SVYval)}
@@ -32,12 +24,20 @@ class COE extends Component {
         </button>
 
         <br hidden={!this.props.Calc1val && !this.props.ENGR1181val}></br>
+
         <button
-          hidden={!this.props.Calc1val}
+          hidden={!this.props.Calc1val || this.props.Math1172val}
           onClick={this.props.onCalc2Clicked}
           className={this.props.onGetButtonColor(this.props.Calc2val)}
         >
           Calc 2
+        </button>
+        <button
+          hidden={!this.props.Calc1val || this.props.Calc2val}
+          onClick={this.props.onMath1172Clicked}
+          className={this.props.onGetButtonColor(this.props.Math1172val)}
+        >
+          MATH1172
         </button>
         <button
           hidden={!this.props.ENGR1181val}
@@ -45,6 +45,13 @@ class COE extends Component {
           className={this.props.onGetButtonColor(this.props.ENGR1182val)}
         >
           ENGR1182
+        </button>
+        <button
+          hidden={!this.props.Calc1val}
+          onClick={this.props.onPHYSClicked}
+          className={this.props.onGetButtonColor(this.props.PHYSval)}
+        >
+          PHYS1250
         </button>
         <br hidden={!this.props.isEligible}></br>
         <button

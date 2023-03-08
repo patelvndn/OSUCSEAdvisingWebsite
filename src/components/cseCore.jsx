@@ -5,8 +5,16 @@ class CseCore extends Component {
     return (
       <div>
         <button
+          className={this.props.onGetButtonColor(this.props.introJava)}
+          onClick={this.props.onIntroJavaClicked}
+        >
+          CSE1223
+        </button>
+        <br hidden={!this.props.introJava}></br>
+        <button
           className={this.props.onGetButtonColor(this.props.SW1val)}
           onClick={this.props.onSW1Clicked}
+          hidden={!this.props.introJava}
         >
           CSE2221
         </button>
