@@ -6,7 +6,7 @@ class Misc extends Component {
       <div>
         <button
           hidden={!this.props.Calc2val || !this.props.Calc1val}
-          className={this.props.onGetButtonColor(this.props.Calc3val)}
+          className={this.props.onGetOptionalButtonColor(this.props.Calc3val)}
           onClick={this.props.onCalc3Clicked}
         >
           Calc 3
@@ -24,7 +24,11 @@ class Misc extends Component {
         <button
           hidden={
             !this.props.Calc1val ||
-            (!this.props.Math1172val && !this.props.Calc3val)
+            !(
+              (this.props.Calc1val && this.props.Math1172val) ||
+              this.props.Calc3val ||
+              (!this.props.onKey1 && this.props.Calc2val && this.props.FN1val)
+            )
           }
           className={this.props.onGetButtonColor(this.props.LINALGval)}
           onClick={this.props.onMATH2568Clicked}
@@ -32,8 +36,15 @@ class Misc extends Component {
           MATH2568
         </button>
         <button
-          //TODO: Hidden.
-          hidden={false}
+          hidden={
+            !this.props.isEligible ||
+            !this.props.Calc1val ||
+            !this.props.isInCSE ||
+            (!this.props.Calc3val &&
+              (this.props.onKey1 ||
+                !this.props.FN1val ||
+                (!this.props.Calc2val && !this.props.Math1172val)))
+          }
           className={this.props.onGetButtonColor(this.props.MATH3345val)}
           onClick={this.props.onMATH3345Clicked}
         >

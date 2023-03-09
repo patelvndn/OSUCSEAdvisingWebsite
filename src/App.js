@@ -107,10 +107,16 @@ class App extends Component {
         />
         <Misc
           onGetButtonColor={this.getButtonColor}
+          onGetOptionalButtonColor={this.getOptionalButtonColor}
           onCalc3Clicked={this.Calc3Clicked}
           onSTAT3470Clicked={this.STAT3470Clicked}
           onMATH2568Clicked={this.MATH2568Clicked}
           onMATH3345Clicked={this.MATH3345Clicked}
+          onKey1={this.getKey1()}
+          isInCSE={this.state.isInCSE}
+          introJava={this.state.introJava}
+          SW1val={this.state.SW1val}
+          FN1val={this.state.FN1val}
           Calc1val={this.state.Calc1val}
           Calc2val={this.state.Calc2val}
           Calc3val={this.state.Calc3val}
@@ -118,6 +124,16 @@ class App extends Component {
           STATval={this.state.STATval}
           LINALGval={this.state.LINALGval}
           MATH3345val={this.state.MATH3345val}
+          isEligible={
+            this.state.Calc1val &&
+            (this.state.Calc2val || this.state.Math1172val) &&
+            this.state.ENGR1181val &&
+            this.state.ENGR1182val &&
+            this.state.PHYSval &&
+            this.state.SVYval &&
+            this.state.SW1val &&
+            this.state.introJava
+          }
         />
         <Section
           key={this.state.counters[2].id}
@@ -264,6 +280,11 @@ class App extends Component {
     return (x += val ? "success" : "danger");
   };
 
+  getOptionalButtonColor = (val) => {
+    let x = "btn btn-lg m-2 btn-";
+    return (x += val ? "success" : "warning");
+  };
+
   getKey1 = () => {
     return !this.state.SW1val || !this.state.introJava;
   };
@@ -324,7 +345,12 @@ class App extends Component {
     let x = this.state.Math1172val;
     this.setState({ Math1172val: !x });
     if (!x) {
-      this.setState({ isInCSE: false });
+      this.setState({
+        isInCSE: false,
+        Calc3val: false,
+        LINALGval: false,
+        STATval: false,
+      });
     }
   };
 
@@ -381,7 +407,7 @@ class App extends Component {
   Calc3Clicked = () => {
     let x = this.state.Calc3val;
     this.setState({ Calc3val: !x });
-    if (!x) {
+    if (!x && this.state.FN1val === false) {
       this.setState({ LINALGval: false });
     }
   };
