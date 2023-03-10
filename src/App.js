@@ -240,6 +240,10 @@ class App extends Component {
         CAPval: false,
       });
     }
+
+    if (!x && this.state.Calc3val === false) {
+      this.setState({ LINALGval: false });
+    }
   };
 
   FN2Clicked = () => {
