@@ -30,8 +30,8 @@ class App extends Component {
     LINALGval: false,
     STATval: false,
     MATH3345val: false,
-    ECE2060: false,
-    ECE2020: false,
+    ECE2060val: false,
+    ECE2020val: false,
 
     introJava: false,
     SW1val: false,
@@ -112,9 +112,13 @@ class App extends Component {
           onSTAT3470Clicked={this.STAT3470Clicked}
           onMATH2568Clicked={this.MATH2568Clicked}
           onMATH3345Clicked={this.MATH3345Clicked}
+          onECE2060Clicked={this.ECE2060Clicked}
           onKey1={this.getKey1()}
           isInCSE={this.state.isInCSE}
           introJava={this.state.introJava}
+          ENGR1181val={this.state.ENGR1181val}
+          ENGR1182val={this.state.ENGR1182val}
+          Physval={this.state.PHYSval}
           SW1val={this.state.SW1val}
           FN1val={this.state.FN1val}
           Calc1val={this.state.Calc1val}
@@ -124,6 +128,7 @@ class App extends Component {
           STATval={this.state.STATval}
           LINALGval={this.state.LINALGval}
           MATH3345val={this.state.MATH3345val}
+          ECE2060={this.state.ECE2060val}
           isEligible={
             this.state.Calc1val &&
             (this.state.Calc2val || this.state.Math1172val) &&
@@ -241,7 +246,11 @@ class App extends Component {
       });
     }
 
-    if (!x && this.state.Calc3val === false) {
+    if (
+      x === false &&
+      this.state.Calc3val === false &&
+      this.state.Math1172val !== true
+    ) {
       this.setState({ LINALGval: false });
     }
   };
@@ -406,6 +415,10 @@ class App extends Component {
   AcceptedClicked = () => {
     let x = this.state.isInCSE;
     this.setState({ isInCSE: !x });
+
+    if (x === false) {
+      this.setState({ MATH3345val: false });
+    }
   };
 
   Calc3Clicked = () => {
@@ -429,6 +442,11 @@ class App extends Component {
   MATH3345Clicked = () => {
     let x = this.state.MATH3345val;
     this.setState({ MATH3345val: !x });
+  };
+
+  ECE2060Clicked = () => {
+    let x = this.state.ECE2060val;
+    this.setState({ ECE2060val: !x });
   };
 }
 

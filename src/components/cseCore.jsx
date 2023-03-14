@@ -8,7 +8,7 @@ class CseCore extends Component {
           className={this.props.onGetButtonColor(this.props.introJava)}
           onClick={this.props.onIntroJavaClicked}
         >
-          CSE1223
+          CSE122X
         </button>
         <br hidden={!this.props.introJava}></br>
         <button
