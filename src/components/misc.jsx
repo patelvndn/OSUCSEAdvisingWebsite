@@ -53,6 +53,7 @@ class Misc extends Component {
         <button
           hidden={
             !this.props.Calc1val ||
+            !this.props.ENGR1181val ||
             !this.props.ENGR1182val ||
             !this.props.Physval ||
             (!this.props.Calc2val && !this.props.Math1172val)
@@ -61,6 +62,20 @@ class Misc extends Component {
           onClick={this.props.onECE2060Clicked}
         >
           ECE2060
+        </button>
+
+        <button
+          hidden={
+            !this.props.Calc1val ||
+            !this.props.ENGR1181val ||
+            !this.props.ENGR1182val ||
+            !this.props.Physval ||
+            (!this.props.Calc2val && !this.props.Math1172val)
+          }
+          className={this.props.onGetButtonColor(this.props.ECE2020val)}
+          onClick={this.props.onECE2020Clicked}
+        >
+          ECE2020
         </button>
       </div>
     );

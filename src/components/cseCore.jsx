@@ -29,7 +29,7 @@ class CseCore extends Component {
         <button
           className={this.props.onGetButtonColor(this.props.FN1val)}
           onClick={this.props.onFN1Clicked}
-          hidden={this.props.onKey1}
+          hidden={this.props.onKey1 || !this.props.Calc1val}
         >
           CSE2321
         </button>
@@ -37,7 +37,7 @@ class CseCore extends Component {
         <button
           className={this.props.onGetButtonColor(this.props.FN2val)}
           onClick={this.props.onFN2Clicked}
-          hidden={this.props.onKey2}
+          hidden={this.props.onKey2 || !this.props.STAT3470val}
         >
           CSE2331
         </button>
@@ -48,9 +48,7 @@ class CseCore extends Component {
         >
           CSE2421
         </button>
-
         <br hidden={this.props.onKey3}></br>
-
         <button
           className={this.props.onGetButtonColor(this.props.SYS2val)}
           onClick={this.props.onSYS2Clicked}
@@ -62,7 +60,14 @@ class CseCore extends Component {
         <button
           className={this.props.onGetButtonColor(this.props.CAPval)}
           onClick={this.props.onCAPClicked}
-          hidden={this.props.onKey3}
+          hidden={
+            !this.props.SYS1val ||
+            !this.props.FN1val ||
+            !this.props.SW2val ||
+            !this.props.SW1val ||
+            !this.props.isInCSE ||
+            !this.props.introJava
+          }
         >
           CSE390X
         </button>
