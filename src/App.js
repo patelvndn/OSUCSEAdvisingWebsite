@@ -32,6 +32,7 @@ class App extends Component {
     MATH3345val: false,
     ECE2060val: false,
     ECE2020val: false,
+    ECE2360val: false,
 
     introJava: false,
     SW1val: false,
@@ -59,7 +60,6 @@ class App extends Component {
           className="Region-Formation"
           isEligible={
             this.state.Calc1val &&
-            (this.state.Calc2val || this.state.Math1172val) &&
             this.state.ENGR1181val &&
             this.state.ENGR1182val &&
             this.state.PHYSval &&
@@ -90,7 +90,6 @@ class App extends Component {
           isInCSE={this.state.isInCSE}
           isEligible={
             this.state.Calc1val &&
-            (this.state.Calc2val || this.state.Math1172val) &&
             this.state.ENGR1181val &&
             this.state.ENGR1182val &&
             this.state.PHYSval &&
@@ -114,6 +113,7 @@ class App extends Component {
           onMATH3345Clicked={this.MATH3345Clicked}
           onECE2060Clicked={this.ECE2060Clicked}
           onECE2020Clicked={this.ECE2020Clicked}
+          onECE2360Clicked={this.ECE2360Clicked}
           onKey1={this.getKey1()}
           isInCSE={this.state.isInCSE}
           introJava={this.state.introJava}
@@ -131,9 +131,9 @@ class App extends Component {
           MATH3345val={this.state.MATH3345val}
           ECE2060val={this.state.ECE2060val}
           ECE2020val={this.state.ECE2020val}
+          ECE2360val={this.state.ECE2360val}
           isEligible={
             this.state.Calc1val &&
-            (this.state.Calc2val || this.state.Math1172val) &&
             this.state.ENGR1181val &&
             this.state.ENGR1182val &&
             this.state.PHYSval &&
@@ -343,6 +343,7 @@ class App extends Component {
         isInCSE: false,
         ECE2020val: false,
         ECE2060val: false,
+        ECE2360val: false,
         FN1val: false,
       });
     }
@@ -359,6 +360,7 @@ class App extends Component {
         STATval: false,
         ECE2020val: false,
         ECE2060val: false,
+        ECE2360val: false,
       });
     }
   };
@@ -374,6 +376,7 @@ class App extends Component {
         STATval: false,
         ECE2020val: false,
         ECE2060val: false,
+        ECE2360val: false,
       });
     }
   };
@@ -388,6 +391,7 @@ class App extends Component {
         isInCSE: false,
         ECE2020val: false,
         ECE2060val: false,
+        ECE2360val: false,
       });
     }
   };
@@ -401,6 +405,7 @@ class App extends Component {
         isInCSE: false,
         ECE2020val: false,
         ECE2060val: false,
+        ECE2360val: false,
       });
     }
   };
@@ -414,6 +419,7 @@ class App extends Component {
         isInCSE: false,
         ECE2020val: false,
         ECE2060val: false,
+        ECE2360val: false,
       });
     }
   };
@@ -473,6 +479,11 @@ class App extends Component {
   ECE2020Clicked = () => {
     let x = this.state.ECE2020val;
     this.setState({ ECE2020val: !x });
+  };
+
+  ECE2360Clicked = () => {
+    let x = this.state.ECE2360val;
+    this.setState({ ECE2360val: !x });
   };
 }
 
