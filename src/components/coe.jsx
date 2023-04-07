@@ -22,7 +22,7 @@ class COE extends Component {
         <HtmlTooltip
           TransitionComponent={Fade}
           TransitionProps={{ timeout: 600 }}
-          placement="left-start"
+          placement="left"
           title={
             <React.Fragment>
               <h6>Calculus 1</h6>
@@ -48,7 +48,7 @@ class COE extends Component {
         <HtmlTooltip
           TransitionComponent={Fade}
           TransitionProps={{ timeout: 600 }}
-          placement="top-start"
+          placement="top"
           title={
             <React.Fragment>
               <h6>Fundamentals Of Engineering 1</h6>
@@ -74,7 +74,7 @@ class COE extends Component {
         <HtmlTooltip
           TransitionComponent={Fade}
           TransitionProps={{ timeout: 600 }}
-          placement="right-start"
+          placement="right"
           title={
             <React.Fragment>
               <h6>
@@ -104,7 +104,7 @@ class COE extends Component {
         <HtmlTooltip
           TransitionComponent={Fade}
           TransitionProps={{ timeout: 600 }}
-          placement="left-start"
+          placement="left"
           title={
             <React.Fragment>
               <h6>Calculus 2</h6>
@@ -131,7 +131,7 @@ class COE extends Component {
         <HtmlTooltip
           TransitionComponent={Fade}
           TransitionProps={{ timeout: 600 }}
-          placement="left-start"
+          placement={this.positioning()}
           title={
             <React.Fragment>
               <h6>Engineering Mathematics A</h6>
@@ -158,7 +158,7 @@ class COE extends Component {
         <HtmlTooltip
           TransitionComponent={Fade}
           TransitionProps={{ timeout: 600 }}
-          placement="bottom-start"
+          placement="bottom"
           title={
             <React.Fragment>
               <h6>Fundamentals Of Engineering 2</h6>
@@ -185,7 +185,7 @@ class COE extends Component {
         <HtmlTooltip
           TransitionComponent={Fade}
           TransitionProps={{ timeout: 600 }}
-          placement="right-start"
+          placement="right"
           title={
             <React.Fragment>
               <h6>Mechanics, Work and Energy, Thermal Physics</h6>
@@ -212,7 +212,7 @@ class COE extends Component {
         <HtmlTooltip
           TransitionComponent={Fade}
           TransitionProps={{ timeout: 600 }}
-          placement="top-start"
+          placement="bottom"
           title={
             <React.Fragment>
               <h6>Click this once you have been admitted to the CSE Major</h6>
@@ -236,6 +236,10 @@ class COE extends Component {
         </HtmlTooltip>
       </div>
     );
+  }
+
+  positioning() {
+    return this.props.Math1172val ? "left" : "bottom";
   }
 }
 
