@@ -30,7 +30,7 @@ class Misc extends Component {
               <a
                 href="https://math.osu.edu/courses/math-2153"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 {"Link to OSU Website"}
               </a>
@@ -57,7 +57,7 @@ class Misc extends Component {
               <a
                 href="https://stat.osu.edu/courses/stat-3470.01"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 {"Link to OSU Website"}
               </a>
@@ -87,7 +87,7 @@ class Misc extends Component {
               <a
                 href="https://math.osu.edu/courses/math-2568"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 {"Link to OSU Website"}
               </a>
@@ -121,7 +121,7 @@ class Misc extends Component {
               <a
                 href="https://math.osu.edu/courses/math-3345"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 {"Link to OSU Website"}
               </a>
@@ -165,7 +165,7 @@ class Misc extends Component {
               <a
                 href="https://ece.osu.edu/sites/default/files/uploads/ece-2060.pdf"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 {"Link to OSU Website"}
               </a>

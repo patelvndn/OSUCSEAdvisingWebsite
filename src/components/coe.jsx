@@ -30,7 +30,7 @@ class COE extends Component {
               <a
                 href="https://math.osu.edu/courses/math-1151"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 {"Link to OSU Website"}
               </a>
@@ -56,7 +56,7 @@ class COE extends Component {
               <a
                 href="https://syllabi.engineering.osu.edu/syllabi/engr_1181.01"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 {"Link to OSU Website"}
               </a>
@@ -84,7 +84,7 @@ class COE extends Component {
               <a
                 href="https://syllabi.engineering.osu.edu/syllabi/engr_1100.06"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 {"Link to OSU Website"}
               </a>
@@ -112,7 +112,7 @@ class COE extends Component {
               <a
                 href="https://math.osu.edu/courses/math-1152"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 {"Link to OSU Website"}
               </a>
@@ -139,7 +139,7 @@ class COE extends Component {
               <a
                 href="https://math.osu.edu/courses/math-1172"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 {"Link to OSU Website"}
               </a>
@@ -166,7 +166,7 @@ class COE extends Component {
               <a
                 href="https://syllabi.engineering.osu.edu/syllabi/engr_1182.01"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 {"Link to OSU Website"}
               </a>
@@ -193,7 +193,7 @@ class COE extends Component {
               <a
                 href="https://physics.osu.edu/courses/physics-1250"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 {"Link to OSU Website"}
               </a>
@@ -219,7 +219,7 @@ class COE extends Component {
               <a
                 href="https://advising.engineering.osu.edu/current-students/applying-your-major"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 {"Link for more info"}
               </a>

@@ -43,7 +43,7 @@ class COEHeader extends Component {
                 <a
                   href="https://advising.engineering.osu.edu/current-students/applying-your-major"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   {"Link for more info"}
                 </a>
