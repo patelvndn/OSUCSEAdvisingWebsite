@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { styled } from "@mui/material/styles";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import Fade from "@mui/material/Fade";
+import Badge from "@mui/material/Badge";
 
 const HtmlTooltip = styled(({ className, ...props }) => (
   <Tooltip {...props} classes={{ popper: className }} />
@@ -28,8 +29,7 @@ class COEHeader extends Component {
             placement="right-start"
             title={
               <React.Fragment>
-                <h6>Calculus 1</h6>
-                <p>List of Classes required to apply</p>
+                <h6>List of Classes required to apply</h6>
                 <ul>
                   <li>ENGR 1181 (Fundamentals of Engineering 1)</li>
                   <li>ENGR 1182 (Fundamentals of Engineering 2)</li>
@@ -50,9 +50,11 @@ class COEHeader extends Component {
               </React.Fragment>
             }
           >
-            <span style={this.styles} className={this.checkEligibilty()}>
-              Eligble to apply to CSE
-            </span>
+            <Badge badgeContent={this.getNumber()} color={this.getColor()}>
+              <span style={this.styles} className={"badge badge-primary"}>
+                Eligble to apply to CSE
+              </span>
+            </Badge>
           </HtmlTooltip>
         </h2>
       </div>
@@ -64,10 +66,36 @@ class COEHeader extends Component {
     fontWeight: "bolder",
   };
 
-  checkEligibilty() {
-    let x = "badge badge-pill m-2 badge-";
+  getNumber() {
+    let x = 7;
+    if (this.props.Calc1val === true) {
+      x--;
+    }
+    if (this.props.PHYSval === true) {
+      x--;
+    }
+    if (this.props.ENGR1181val === true) {
+      x--;
+    }
+    if (this.props.ENGR1182val === true) {
+      x--;
+    }
+    if (this.props.SVYval === true) {
+      x--;
+    }
+    if (this.props.SW1val === true) {
+      x--;
+    }
+    if (this.props.introJava === true) {
+      x--;
+    }
 
-    return (x += this.props.isEligible ? "success" : "danger");
+    return x;
+  }
+
+  getColor() {
+    let x = this.getNumber;
+    return x === 0 ? "success" : "primary";
   }
 }
 
