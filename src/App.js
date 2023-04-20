@@ -67,6 +67,13 @@ class App extends Component {
             this.state.SW1val &&
             this.state.introJava
           }
+          Calc1val={this.state.Calc1val}
+          PHYSval={this.state.PHYSval}
+          ENGR1181val={this.state.ENGR1181val}
+          ENGR1182val={this.state.ENGR1182val}
+          SVYval={this.state.SVYval}
+          SW1val={this.state.SW1val}
+          introJava={this.state.introJava}
         />
         <COE
           key={10}
@@ -384,7 +391,7 @@ class App extends Component {
   FE1Clicked = () => {
     let x = this.state.ENGR1181val;
     this.setState({ ENGR1181val: !x });
-    if (!x) {
+    if (x === false) {
       this.setState({
         ENGR1182val: false,
         CSEaccval: false,
@@ -399,7 +406,7 @@ class App extends Component {
   FE2Clicked = () => {
     let x = this.state.ENGR1182val;
     this.setState({ ENGR1182val: !x });
-    if (!x) {
+    if (x === false) {
       this.setState({
         CSEaccval: false,
         isInCSE: false,
