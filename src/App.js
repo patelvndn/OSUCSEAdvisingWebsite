@@ -5,6 +5,7 @@ import CseCore from "./components/cseCore";
 import COEHeader from "./components/coeHeader";
 import COE from "./components/coe";
 import Misc from "./components/misc";
+import PostCore from "./components/postcore";
 
 class App extends Component {
   state = {
@@ -185,6 +186,27 @@ class App extends Component {
           region={this.state.counters[3].region}
           className="Region-Formation"
         />
+        <PostCore
+          key={313}
+          onGetButtonColor={this.getButtonColor}
+          Calc1val={this.state.Calc1val}
+          Calc2val={this.state.Calc2val}
+          Calc3val={this.state.Calc3val}
+          Math1172val={this.state.Math1172val}
+          STATval={this.state.STATval}
+          LINALGval={this.state.LINALGval}
+          MATH3345val={this.state.MATH3345val}
+          introJava={this.state.introJava}
+          SW1val={this.state.SW1val}
+          SW2val={this.state.SW2val}
+          FN1val={this.state.FN1val}
+          FN2val={this.state.FN2val}
+          SYS1val={this.state.SYS1val}
+          SYS2val={this.state.SYS2val}
+          CAPval={this.state.CAPval}
+          STAT3470val={this.state.STATval}
+          isInCSE={this.state.isInCSE}
+        />
 
         <Section
           key={this.state.counters[4].id}
@@ -262,7 +284,7 @@ class App extends Component {
       this.state.Calc3val === false &&
       this.state.Math1172val !== true
     ) {
-      this.setState({ LINALGval: false });
+      this.setState({ LINALGval: false, MATH3345val: false });
     }
   };
 

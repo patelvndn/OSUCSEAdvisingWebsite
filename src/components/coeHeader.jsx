@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { styled } from "@mui/material/styles";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import Fade from "@mui/material/Fade";
-import Badge from "@mui/material/Badge";
 
 const HtmlTooltip = styled(({ className, ...props }) => (
   <Tooltip {...props} classes={{ popper: className }} />
@@ -50,11 +49,9 @@ class COEHeader extends Component {
               </React.Fragment>
             }
           >
-            <Badge badgeContent={this.getNumber()} color={this.getColor()}>
-              <span style={this.styles} className={"badge badge-primary"}>
-                Eligble to apply to CSE
-              </span>
-            </Badge>
+            <span style={this.styles} className={this.getColor()}>
+              Eligble to apply to CSE
+            </span>
           </HtmlTooltip>
         </h2>
       </div>
@@ -66,36 +63,9 @@ class COEHeader extends Component {
     fontWeight: "bolder",
   };
 
-  getNumber() {
-    let x = 7;
-    if (this.props.Calc1val === true) {
-      x--;
-    }
-    if (this.props.PHYSval === true) {
-      x--;
-    }
-    if (this.props.ENGR1181val === true) {
-      x--;
-    }
-    if (this.props.ENGR1182val === true) {
-      x--;
-    }
-    if (this.props.SVYval === true) {
-      x--;
-    }
-    if (this.props.SW1val === true) {
-      x--;
-    }
-    if (this.props.introJava === true) {
-      x--;
-    }
-
-    return x;
-  }
-
   getColor() {
-    let x = this.getNumber;
-    return x === 0 ? "success" : "primary";
+    let x = "badge m-2 bg-";
+    return (x += this.props.isEligible ? "success" : "danger");
   }
 }
 

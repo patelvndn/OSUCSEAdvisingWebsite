@@ -187,36 +187,79 @@ class Misc extends Component {
           </button>
         </HtmlTooltip>
 
-        <button
-          hidden={
-            !this.props.Calc1val ||
-            !this.props.ENGR1181val ||
-            !this.props.ENGR1182val ||
-            !this.props.Physval ||
-            (!this.props.Calc2val && !this.props.Math1172val) ||
-            this.props.ECE2360val
+        <HtmlTooltip
+          TransitionComponent={Fade}
+          TransitionProps={{ timeout: 300 }}
+          placement={this.get2020()}
+          title={
+            <React.Fragment>
+              <h6>Introduction to Analog Systems and Circuits</h6>
+              <em>{"Credit Hours: "}</em> <b>{"3"}</b> <br></br>
+              <a
+                href="https://physics.osu.edu/courses/ece-2020"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {"Link to OSU Website"}
+              </a>
+            </React.Fragment>
           }
-          className={this.props.onGetButtonColor(this.props.ECE2020val)}
-          onClick={this.props.onECE2020Clicked}
         >
-          ECE2020
-        </button>
-        <button
-          hidden={
-            !this.props.Calc1val ||
-            !this.props.ENGR1181val ||
-            !this.props.ENGR1182val ||
-            !this.props.Physval ||
-            (!this.props.Calc2val && !this.props.Math1172val) ||
-            this.props.ECE2020val
+          <button
+            hidden={
+              !this.props.Calc1val ||
+              !this.props.ENGR1181val ||
+              !this.props.ENGR1182val ||
+              !this.props.Physval ||
+              (!this.props.Calc2val && !this.props.Math1172val) ||
+              this.props.ECE2360val
+            }
+            className={this.props.onGetButtonColor(this.props.ECE2020val)}
+            onClick={this.props.onECE2020Clicked}
+          >
+            ECE2020
+          </button>
+        </HtmlTooltip>
+
+        <HtmlTooltip
+          TransitionComponent={Fade}
+          TransitionProps={{ timeout: 300 }}
+          placement={this.get2020()}
+          title={
+            <React.Fragment>
+              <h6>Electronics for CSE Majors</h6>
+              <em>{"Credit Hours: "}</em> <b>{"3"}</b> <br></br>
+              <a
+                href="https://ece.osu.edu/sites/default/files/2023-02/course-list.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {"Link to OSU Website"}
+              </a>
+            </React.Fragment>
           }
-          className={this.props.onGetButtonColor(this.props.ECE2360val)}
-          onClick={this.props.onECE2360Clicked}
         >
-          ECE2360
-        </button>
+          <button
+            hidden={
+              !this.props.Calc1val ||
+              !this.props.ENGR1181val ||
+              !this.props.ENGR1182val ||
+              !this.props.Physval ||
+              (!this.props.Calc2val && !this.props.Math1172val) ||
+              this.props.ECE2020val
+            }
+            className={this.props.onGetButtonColor(this.props.ECE2360val)}
+            onClick={this.props.onECE2360Clicked}
+          >
+            ECE2360
+          </button>
+        </HtmlTooltip>
       </div>
     );
+  }
+
+  get2020() {
+    return !this.props.ECE2020val ? "bottom" : "right";
   }
 }
 
