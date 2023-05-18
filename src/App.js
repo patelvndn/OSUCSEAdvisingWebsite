@@ -49,7 +49,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          Welcome to the CSE Schedule Planner Website!
+          Class Visualizer for Computer Science and Engineering
         </header>
         <b className="App-body">
           Click which classes you have taken, or taking currently, and the
@@ -164,7 +164,6 @@ class App extends Component {
           onFN2Clicked={this.FN2Clicked}
           onSYS1Clicked={this.SYS1Clicked}
           onSYS2Clicked={this.SYS2Clicked}
-          onCAPClicked={this.CAPClicked}
           onIntroJavaClicked={this.introJavaClicked}
           onKey1={this.getKey1()}
           onKey2={this.getKey2()}
@@ -189,6 +188,7 @@ class App extends Component {
         <PostCore
           key={313}
           onGetButtonColor={this.getButtonColor}
+          onCAPClicked={this.CAPClicked}
           Calc1val={this.state.Calc1val}
           Calc2val={this.state.Calc2val}
           Calc3val={this.state.Calc3val}
@@ -206,6 +206,22 @@ class App extends Component {
           CAPval={this.state.CAPval}
           STAT3470val={this.state.STATval}
           isInCSE={this.state.isInCSE}
+          gpr={
+            this.state.ENGR1181val &&
+            this.state.ENGR1182val &&
+            this.state.PHYSval &&
+            this.state.Calc1val &&
+            ((this.state.Calc2val && this.state.Calc3val) ||
+              this.state.Math1172val) &&
+            this.state.SYVval &&
+            this.state.CSEacc &&
+            this.state.isInCSE &&
+            this.state.SW1val &&
+            this.state.SW2val &&
+            this.state.FN1val &&
+            this.state.SYS1val &&
+            this.state.introJava
+          }
         />
 
         <Section
