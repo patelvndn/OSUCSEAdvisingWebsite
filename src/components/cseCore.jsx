@@ -231,21 +231,6 @@ class CseCore extends Component {
             CSE2431
           </button>
         </HtmlTooltip>
-
-        <button
-          className={this.props.onGetButtonColor(this.props.CAPval)}
-          onClick={this.props.onCAPClicked}
-          hidden={
-            !this.props.SYS1val ||
-            !this.props.FN1val ||
-            !this.props.SW2val ||
-            !this.props.SW1val ||
-            !this.props.isInCSE ||
-            !this.props.introJava
-          }
-        >
-          CSE390X
-        </button>
       </div>
     );
   }

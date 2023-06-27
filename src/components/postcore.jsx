@@ -4,7 +4,7 @@ class postCore extends Component {
   render() {
     return (
       <button
-        hidden={!this.props.gpr}
+        hidden={this.props.getPostKey}
         onClick={this.props.onCAPClicked}
         className={this.props.onGetButtonColor(this.props.CAPval)}
       >

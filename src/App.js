@@ -42,15 +42,14 @@ class App extends Component {
     FN2val: false,
     SYS1val: false,
     SYS2val: false,
+
     CAPval: false,
   };
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          Class Visualizer for Computer Science and Engineering
-        </header>
+        <header className="App-header">CSE Classes</header>
         <b className="App-body">
           Click which classes you have taken, or taking currently, and the
           website will tell you what classes you can take next.
@@ -178,6 +177,7 @@ class App extends Component {
           CAPval={this.state.CAPval}
           STAT3470val={this.state.STATval}
           Calc1val={this.state.Calc1val}
+          isInCSE={this.state.isInCSE}
         />
 
         <Section
@@ -189,6 +189,7 @@ class App extends Component {
           key={313}
           onGetButtonColor={this.getButtonColor}
           onCAPClicked={this.CAPClicked}
+          getPostKey={this.GetPostKey()}
           Calc1val={this.state.Calc1val}
           Calc2val={this.state.Calc2val}
           Calc3val={this.state.Calc3val}
@@ -206,22 +207,6 @@ class App extends Component {
           CAPval={this.state.CAPval}
           STAT3470val={this.state.STATval}
           isInCSE={this.state.isInCSE}
-          gpr={
-            this.state.ENGR1181val &&
-            this.state.ENGR1182val &&
-            this.state.PHYSval &&
-            this.state.Calc1val &&
-            ((this.state.Calc2val && this.state.Calc3val) ||
-              this.state.Math1172val) &&
-            this.state.SYVval &&
-            this.state.CSEacc &&
-            this.state.isInCSE &&
-            this.state.SW1val &&
-            this.state.SW2val &&
-            this.state.FN1val &&
-            this.state.SYS1val &&
-            this.state.introJava
-          }
         />
 
         <Section
@@ -364,7 +349,6 @@ class App extends Component {
   getKey3 = () => {
     return (
       !this.state.SYS1val ||
-      !this.state.FN2val ||
       !this.state.FN1val ||
       !this.state.SW2val ||
       !this.state.SW1val ||
@@ -529,6 +513,33 @@ class App extends Component {
   ECE2360Clicked = () => {
     let x = this.state.ECE2360val;
     this.setState({ ECE2360val: !x });
+  };
+
+  GetPostKey = () => {
+    let x =
+      !this.state.ENGR1181val ||
+      !this.state.ENGR1182val ||
+      !this.state.PHYSval ||
+      !this.state.Calc1val ||
+      !this.state.Calc2val ||
+      !this.state.SVYval ||
+      !this.state.CSEacc ||
+      !this.state.isInCSE ||
+      (!this.state.Calc3val && !this.state.Math1172val) ||
+      !this.state.LINALGval ||
+      !this.state.STATval ||
+      !this.state.MATH3345val ||
+      !this.state.ECE2060val ||
+      (!this.state.ECE2020val && !this.state.ECE2360val) ||
+      !this.state.introJava ||
+      !this.state.SW1val ||
+      !this.state.SW2val ||
+      !this.state.FN1val ||
+      !this.state.FN2val ||
+      !this.state.SYS1val ||
+      !this.state.SYS2val;
+
+    return x;
   };
 }
 
