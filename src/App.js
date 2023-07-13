@@ -521,22 +521,18 @@ class App extends Component {
       !this.state.ENGR1182val ||
       !this.state.PHYSval ||
       !this.state.Calc1val ||
-      !this.state.Calc2val ||
+      (!this.state.Math1172val &&
+        (!this.state.Calc2val || !this.state.Calc3val)) ||
       !this.state.SVYval ||
-      !this.state.isInCSE;
-    // (!this.state.Calc3val && !this.state.Math1172val) ||
-    // !this.state.LINALGval ||
-    // !this.state.STATval ||
-    // !this.state.MATH3345val ||
-    // !this.state.ECE2060val ||
-    // (!this.state.ECE2020val && !this.state.ECE2360val) ||
-    // !this.state.introJava ||
-    // !this.state.SW1val ||
-    // !this.state.SW2val ||
-    // !this.state.FN1val ||
-    // !this.state.FN2val ||
-    // !this.state.SYS1val ||
-    // !this.state.SYS2val;
+      !this.state.isInCSE ||
+      !this.state.STATval ||
+      !this.state.introJava ||
+      !this.state.SW1val ||
+      !this.state.SW2val ||
+      !this.state.FN1val ||
+      !this.state.FN2val ||
+      !this.state.SYS1val ||
+      !this.state.SYS2val;
 
     return x;
   };
